@@ -4,9 +4,13 @@
 class ShapeMaster {
 	public: 
 		ShapeMaster();
-	    float theArea();
-	    float area;
+		float area;
+	    float theArea() const {return area;}
+	    
+
 };
+
+bool operator<(const ShapeMaster &s1, const ShapeMaster &s2);
 
 #endif
 
