@@ -4,23 +4,15 @@
 #include "Circle.h"
 #include <string>
 #include <vector>
-#include<list>
-#include <iterator> 
-
+#include <list>
+#include <algorithm> 
 #include <iostream>
-
+#include <bits/stdc++.h>
+#include <typeinfo>
 
 using namespace std;
 
 
-bool operator < (ShapeMaster float* a, ShapeMaster float* z) {
-	return a.theArea() < z.theArea();
-}
-
-template<typename S>
-bool isSmallerThan(S a, S z){
-	    	return a < z;
-}
 
 int main(){
   
@@ -31,6 +23,9 @@ int main(){
   Triangle Shape4 (10.0, 12.5);
   Circle Shape5 (5.0, 7.5);
   Square Shape6 (2.0, 2.0);
+
+  // cout << Shape6.theArea() << endl;
+  // cout << typeid(Shape6).name() << endl;
 
   // initializing my vector with all the objects 
   vector<ShapeMaster> myVector; 
@@ -60,12 +55,18 @@ int main(){
 	// for (auto it = theList.begin(); it != theList.end(); ++it) 
  //        cout << ' ' << *it;
 
-  sort(myVector.begin(), myVector.end(), isSmallerThan<ShapeMaster>);
+  sort(myVector.begin(), myVector.end());
 
-  //cout << "kind of working  " << myVector << endl;
+
+    for ( int i = 0; i < myVector.size(); ++i ) {
+        cout << i + 1 << ". " << myVector[i].theArea() << "\t"<< typeid(myVector[i]).name() << endl;
+        // cout<<typeid(Shape4).name()<<"\t"<< quote(Shape4) <<"\n";
+        }
   
 	return 0;
 }
+
+
 
 
 
